@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<h1>Predictor List</h1>
+
+{% for predictor in predictor_list %}
+  <p><a href="{{ predictor.get_absolute_url }}">{{ predictor.name }}</a></p>
+{% endfor %}
+
+<hr>
+
+<div>
+  Create new predictor:
+
+  <p>
+    <a href="{% url 'predictors:scikitmlppredictor_create' %}">Scikit MLP</a>
+  </p>
+</div>
+
+</body>
+</html>

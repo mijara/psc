@@ -1,0 +1,7 @@
+venv/
+*.pyc
+.idea/
+.DS_Store
+*.csv
+*.pickle
+db.sqlite3

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <div class="container mt-5">
+    <h1>Predictors Manager</h1>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <div class="card-header">
+            Predictors
+          </div>
+
+          <div class="card-body">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Nuevo Predictor
+              </button>
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/predictors/create/scikitmlppredictor/">Scikit Learn MultiLayer Perceptron</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="list-group list-group-flush">
+            {% for predictor in predictors %}
+              <a href="{{ predictor.get_absolute_url }}" class="list-group-item">{{ predictor.name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-header">
+            Datasets
+          </div>
+
+          <div class="card-body">
+            <a href="{% url 'datasets:dataset_create' %}" class="btn btn-primary">New dataset</a>
+          </div>
+
+          <div class="list-group list-group-flush">
+            {% for dataset in datasets %}
+              <a href="{{ dataset.get_absolute_url }}" class="list-group-item">{{ dataset.name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

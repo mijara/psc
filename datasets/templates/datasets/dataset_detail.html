@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block body %}
+  <div class="container mt-5">
+    <small><a href="{% url 'landing:landing' %}">Datasets</a></small>
+    <h1>{{ dataset.name }}</h1>
+    <small>Format: {{ dataset.get_format_display }}</small>
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        {{ dataset.get_table.to_html|safe }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <div class="container mt-5">
+    <small><a href="{% url 'landing:landing' %}">Predictors</a></small>
+    <h1>{{ predictor.name }}</h1>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-12">
+        <h2>Jobs
+          <small class="float-right"><a href="{% url 'trainjobs:trainjob_create' %}?p={{ predictor.pk }}">New training
+            job</a></small>
+        </h2>
+
+        <ul>
+          {% for trainjob in predictor.trainjob_set.all %}
+            <li>
+              <a href="{{ trainjob.get_absolute_url }}">{{ trainjob.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<h1>Dataset List</h1>
+
+{% for dataset in dataset_list %}
+  <p><a href="{{ dataset.get_absolute_url }}">{{ dataset.name }}</a></p>
+{% endfor %}
+
+<hr>
+
+<p>
+  <a href="{% url 'datasets:dataset_create' %}">Create</a>
+</p>
+
+</body>
+</html>
